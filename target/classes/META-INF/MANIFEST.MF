@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: dosvox
+Build-Jdk: 10.0.2
+Implementation-Title: Padaria System
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: br.facisa.si.treinamento.syspadara
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/syspadara
+Created-By: Maven Integration for Eclipse
+
