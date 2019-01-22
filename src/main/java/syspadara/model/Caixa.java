@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -15,18 +15,15 @@ import javax.persistence.GenerationType;
 @Table(name = "CAIXA")
 public class Caixa implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "ID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	private int id_venda;
 	private double saldo;
+	
+	@OneToMany
 	private ArrayList<Venda> vendas;
 
 	// CONSTRUTORES
@@ -35,7 +32,6 @@ public class Caixa implements Serializable {
 
 	public Caixa(int id, int id_venda, double saldo) {
 		this.id = id;
-		this.id_venda = id_venda;
 		this.saldo = saldo;
 	}
 
@@ -46,14 +42,6 @@ public class Caixa implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getId_venda() {
-		return id_venda;
-	}
-
-	public void setId_venda(int id_venda) {
-		this.id_venda = id_venda;
 	}
 
 	public double getSaldo() {

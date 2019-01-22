@@ -8,16 +8,14 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "CATEGORIA")
 public class Categoria implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -27,6 +25,8 @@ public class Categoria implements Serializable{
 	
 	private String nome;
 	private int status;
+	
+	@OneToMany
 	private ArrayList<Produto> produtos;
 	
 	//CONSTRUTORES

@@ -20,38 +20,38 @@ import syspadara.service.CategoriaService;
 @Controller
 @RequestMapping("/categorias")
 public class CategoriaController {
-	
+
 	@Autowired
 	private CategoriaService service;
-	
+
 	@GetMapping(path = "/{id}")
-	public ResponseEntity<Categoria> readCategoria(@PathVariable(name="id") Long id){
+	public ResponseEntity<Categoria> readCategoria(@PathVariable(name = "id") Long id) {
 		Categoria categoria = service.readCategoria(id);
 		return new ResponseEntity<Categoria>(categoria, HttpStatus.OK);
 	}
-	
+
 	@PostMapping("/novo")
-	public ResponseEntity<Categoria> createCategoria(@RequestBody Categoria categoria){
+	public ResponseEntity<Categoria> createCategoria(@RequestBody Categoria categoria) {
 		service.createCategoria(categoria);
 		return new ResponseEntity<Categoria>(HttpStatus.CREATED);
 	}
-	
+
 	@PutMapping("/atualizacao")
-	public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria){
+	public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria) {
 		service.updateCategoria(categoria);
 		return new ResponseEntity<Categoria>(HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/{id}/exclusao")
-	public ResponseEntity<Categoria> deleteCategoria(@PathVariable(name="id") Long id){
+	public ResponseEntity<Categoria> deleteCategoria(@PathVariable(name = "id") Long id) {
 		service.deleteCategoria(id);
 		return new ResponseEntity<Categoria>(HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/todos")
-	public ResponseEntity<List<Categoria>> readAll(){
+	public ResponseEntity<List<Categoria>> readAll() {
 		List<Categoria> categorias = service.readAll();
 		return new ResponseEntity<List<Categoria>>(categorias, HttpStatus.OK);
 	}
-	
+
 }

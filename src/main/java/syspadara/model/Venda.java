@@ -1,11 +1,12 @@
 package syspadara.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
-import javax.persistence.Column;
+import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -13,32 +14,23 @@ import javax.persistence.GenerationType;
 @Table(name = "VENDA")
 public class Venda implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "ID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
-	@Column(name = "ID_PRODUTO")
-	private int id_produto;
-
-	@Column(name = "QNTD")
 	private int qntd;
-
-	@Column(name = "total")
 	private double valor;
+	
+	@OneToMany
+	private List<Produto> produtos;
 
 	// CONSTRUTORES
 	protected Venda() {
 	}
 
-	public Venda(int id, int id_produto, int qntd, double valor) {
+	public Venda(int id, int qntd, double valor) {
 		this.id = id;
-		this.id_produto = id_produto;
 		this.qntd = qntd;
 		this.valor = valor;
 	}
@@ -50,14 +42,6 @@ public class Venda implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getId_produto() {
-		return id_produto;
-	}
-
-	public void setId_produto(int id_produto) {
-		this.id_produto = id_produto;
 	}
 
 	public int getQntd() {
