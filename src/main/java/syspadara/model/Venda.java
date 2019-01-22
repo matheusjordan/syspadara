@@ -13,6 +13,11 @@ import javax.persistence.GenerationType;
 @Table(name = "VENDA")
 public class Venda implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "ID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +29,7 @@ public class Venda implements Serializable {
 	@Column(name = "QNTD")
 	private int qntd;
 
-	@Column(name = "VALOR")
+	@Column(name = "total")
 	private double valor;
 
 	// CONSTRUTORES

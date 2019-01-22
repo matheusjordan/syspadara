@@ -15,17 +15,18 @@ import javax.persistence.GenerationType;
 @Table(name = "CATEGORIA")
 public class Categoria implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
 	private int id;
 	
-	@Column(name = "TIPO")
 	private String nome;
-	
-	@Column(name = "STATUS")
 	private int status;
-	
 	private ArrayList<Produto> produtos;
 	
 	//CONSTRUTORES

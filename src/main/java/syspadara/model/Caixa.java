@@ -15,17 +15,18 @@ import javax.persistence.GenerationType;
 @Table(name = "CAIXA")
 public class Caixa implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "ID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@Column(name = "ID_VENDA")
 	private int id_venda;
-
-	@Column(name = "SALDO")
 	private double saldo;
-
 	private ArrayList<Venda> vendas;
 
 	// CONSTRUTORES

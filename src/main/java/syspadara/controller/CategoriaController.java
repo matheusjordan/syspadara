@@ -1,36 +1,57 @@
 package syspadara.controller;
 
-import syspadara.model.Categoria;
-
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import syspadara.model.Categoria;
+import syspadara.service.CategoriaService;
 
-@RestController
+@Controller
+@RequestMapping("/categorias")
 public class CategoriaController {
 	
-	private List<Categoria> categorias = new ArrayList<Categoria>();
+	@Autowired
+	private CategoriaService service;
 	
-	{
-		Categoria cat1 = new Categoria(1,"Salgados",1);
-		Categoria cat2 = new Categoria(2,"Doces",1);
-		Categoria cat3 = new Categoria(3,"Bebidas",1);
-		this.categorias.add(cat1);
-		this.categorias.add(cat2);
-		this.categorias.add(cat3);
+	@GetMapping(path = "/{id}")
+	public ResponseEntity<Categoria> readCategoria(@PathVariable(name="id") Long id){
+		Categoria categoria = service.readCategoria(id);
+		return new ResponseEntity<Categoria>(categoria, HttpStatus.OK);
 	}
 	
-	@RequestMapping("/Categoria")
-	public Categoria getCategoria(@RequestParam(value = "id", defaultValue="1")int id) {
-		return this.categorias.get(id -1);
+	@PostMapping("/novo")
+	public ResponseEntity<Categoria> createCategoria(@RequestBody Categoria categoria){
+		service.createCategoria(categoria);
+		return new ResponseEntity<Categoria>(HttpStatus.CREATED);
 	}
 	
-	@RequestMapping("/Categoria/All")
-	public List<Categoria> getCategorias(){
-		return this.categorias;
+	@PutMapping("/atualizacao")
+	public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria){
+		service.updateCategoria(categoria);
+		return new ResponseEntity<Categoria>(HttpStatus.OK);
 	}
+	
+	@DeleteMapping("/{id}/exclusao")
+	public ResponseEntity<Categoria> deleteCategoria(@PathVariable(name="id") Long id){
+		service.deleteCategoria(id);
+		return new ResponseEntity<Categoria>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/todos")
+	public ResponseEntity<List<Categoria>> readAll(){
+		List<Categoria> categorias = service.readAll();
+		return new ResponseEntity<List<Categoria>>(categorias, HttpStatus.OK);
+	}
+	
 }

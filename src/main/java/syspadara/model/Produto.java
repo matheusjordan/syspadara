@@ -13,21 +13,19 @@ import java.io.Serializable;
 @Table(name = "PRODUTO")
 public class Produto implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
 	private int id;
 	
-	@Column(name = "NOME")
 	private String nome;
-	
-	@Column(name = "VALOR")
 	private double valor;
-	
-	@Column(name = "QNTD")
 	private int qntd;
-	
-	@Column(name = "CATEGORIA_ID")
 	private int id_categoria;
 	
 	//CONSTRUTORES
