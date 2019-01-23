@@ -18,31 +18,31 @@ import syspadara.model.Categoria;
 import syspadara.service.CategoriaService;
 
 @Controller
-@RequestMapping("/categorias")
+@RequestMapping("categorias")
 public class CategoriaController {
 
 	@Autowired
 	private CategoriaService service;
 
-	@GetMapping(path = "/{id}")
+	@GetMapping("{id}")
 	public ResponseEntity<Categoria> readCategoria(@PathVariable(name = "id") Long id) {
 		Categoria categoria = service.readCategoria(id);
 		return new ResponseEntity<Categoria>(categoria, HttpStatus.OK);
 	}
 
-	@PostMapping("/novo")
+	@PostMapping("novo")
 	public ResponseEntity<Categoria> createCategoria(@RequestBody Categoria categoria) {
 		service.createCategoria(categoria);
 		return new ResponseEntity<Categoria>(HttpStatus.CREATED);
 	}
 
-	@PutMapping("/atualizacao")
+	@PutMapping("atualizacao")
 	public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria) {
 		service.updateCategoria(categoria);
 		return new ResponseEntity<Categoria>(HttpStatus.OK);
 	}
 
-	@DeleteMapping("/{id}/exclusao")
+	@DeleteMapping("{id}/exclusao")
 	public ResponseEntity<Categoria> deleteCategoria(@PathVariable(name = "id") Long id) {
 		service.deleteCategoria(id);
 		return new ResponseEntity<Categoria>(HttpStatus.OK);

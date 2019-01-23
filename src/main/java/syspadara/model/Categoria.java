@@ -1,7 +1,6 @@
 package syspadara.model;
 
-import java.util.ArrayList;
-
+import java.util.List;
 import java.io.Serializable;
 
 import javax.persistence.Table;
@@ -27,7 +26,7 @@ public class Categoria implements Serializable{
 	private int status;
 	
 	@OneToMany
-	private ArrayList<Produto> produtos;
+	private List<Produto> produtos;
 	
 	//CONSTRUTORES
 	protected Categoria() {
@@ -61,10 +60,10 @@ public class Categoria implements Serializable{
 		this.status = status;
 	}
 	
-	public ArrayList<Produto> getProdutos() {
+	public List<Produto> getProdutos() {
 		return this.produtos;
 	}
-	public void setProdutos(ArrayList<Produto> produtos) {
+	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
 	public void addProduto(Produto produto) {

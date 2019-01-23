@@ -2,7 +2,7 @@ package syspadara.model;
 
 import java.io.Serializable;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -24,7 +24,7 @@ public class Caixa implements Serializable {
 	private double saldo;
 	
 	@OneToMany
-	private ArrayList<Venda> vendas;
+	private List<Venda> vendas;
 
 	// CONSTRUTORES
 	protected Caixa() {
@@ -52,11 +52,11 @@ public class Caixa implements Serializable {
 		this.saldo = saldo;
 	}
 
-	public ArrayList<Venda> getVendas() {
+	public List<Venda> getVendas() {
 		return vendas;
 	}
 
-	public void setVendas(ArrayList<Venda> vendas) {
+	public void setVendas(List<Venda> vendas) {
 		this.vendas = vendas;
 	}
 
