@@ -18,7 +18,7 @@ public class Caixa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "caixa_id")
-	private int id;
+	private Long id;
 	
 	@Column(name = "caixa_saldo", nullable = false)
 	private double saldo;
@@ -30,17 +30,17 @@ public class Caixa implements Serializable {
 	protected Caixa() {
 	}
 
-	public Caixa(int id, int id_venda, double saldo) {
+	public Caixa(Long id, int id_venda, double saldo) {
 		this.id = id;
 		this.saldo = saldo;
 	}
 
 	// METODOS
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -16,7 +16,7 @@ public class Produto implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "produto_id")
-	private int id;
+	private Long id;
 
 	@Column(name = "produto_nome", nullable = false, unique = true, length = 50)
 	private String nome;
@@ -34,7 +34,7 @@ public class Produto implements Serializable{
 	protected Produto() {
 	}
 	
-	public Produto(int id,String nome, double valor, int qntd, int id_categoria) {
+	public Produto(Long id,String nome, double valor, int qntd, int id_categoria) {
 		this.id = id;
 		this.nome = nome;
 		this.valor = valor;
@@ -43,10 +43,10 @@ public class Produto implements Serializable{
 	}
 	
 	//METODOS
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

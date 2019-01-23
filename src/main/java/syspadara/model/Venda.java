@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "VENDA")
 public class Venda implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -20,7 +19,7 @@ public class Venda implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "venda_id")
-	private int id;
+	private Long id;
 	
 	@Column(name = "venda_valor", nullable = false)
 	private double valor;
@@ -32,17 +31,17 @@ public class Venda implements Serializable {
 	protected Venda() {
 	}
 
-	public Venda(int id, double valor) {
+	public Venda(Long id, double valor) {
 		this.id = id;
 		this.valor = valor;
 	}
 
 	// METODOS
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
