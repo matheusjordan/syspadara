@@ -15,6 +15,11 @@ public class CaixaService {
 	private CaixaRepository repository;
 	
 	public String createCaixa(Caixa caixa) {
+		
+		if(caixa.getRg().length() != 3) {
+			return "Nao criado";
+		}
+		
 		repository.save(caixa);
 		return "Criado";
 	}

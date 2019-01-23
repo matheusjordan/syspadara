@@ -7,5 +7,5 @@ import syspadara.model.Caixa;
 
 @Repository
 public interface CaixaRepository extends JpaRepository<Caixa, Long>{
-
+	
 }

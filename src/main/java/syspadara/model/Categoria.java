@@ -16,7 +16,7 @@ public class Categoria implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "categoria_id")
 	private Long id;
 	
@@ -30,11 +30,10 @@ public class Categoria implements Serializable{
 	private List<Produto> produtos;
 	
 	//CONSTRUTORES
-	protected Categoria() {
+	public Categoria() {
 	}
 	
-	public Categoria(Long id, String nome, int status) {
-		this.id = id;
+	public Categoria(String nome, int status) {
 		this.nome = nome;
 		this.status = status;
 	}

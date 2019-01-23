@@ -17,7 +17,7 @@ public class Venda implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "venda_id")
 	private Long id;
 	
@@ -31,8 +31,7 @@ public class Venda implements Serializable {
 	protected Venda() {
 	}
 
-	public Venda(Long id, double valor) {
-		this.id = id;
+	public Venda(double valor) {
 		this.valor = valor;
 	}
 

@@ -14,9 +14,9 @@ public class CategoriaService {
 	@Autowired
 	private CategoriaRepository repository;
 	
-	public String createCategoria(Categoria categoria) {
+	public void createCategoria(Categoria categoria) {
 		this.repository.save(categoria);
-		return "Criado";
+		System.out.println("Cadastrado");;
 	}
 	
 	public Categoria readCategoria(Long id) {

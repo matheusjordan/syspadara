@@ -28,10 +28,11 @@ public class ProdutoService {
 		return "Atualizado";
 	}
 	
-	public String deleteProduto(Long id) {
+	//Ao excluir será exibido "Deletado" no console
+	public void deleteProduto(Long id) {
 		Produto produto = repository.findById(id).get();
 		repository.delete(produto);
-		return "Deletado";
+		System.out.println("Deletado");
 	}
 	
 	public List<Produto> readAll(){

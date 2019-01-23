@@ -16,13 +16,16 @@ public class Caixa implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "caixa_id")
 	private Long id;
 	
 	@Column(name = "caixa_saldo", nullable = false)
 	private double saldo;
 	
+	@Column(name = "caixa_rg", nullable = false, unique = true)
+	private String rg;
+
 	@OneToMany
 	private List<Venda> vendas;
 
@@ -30,9 +33,9 @@ public class Caixa implements Serializable {
 	protected Caixa() {
 	}
 
-	public Caixa(Long id, int id_venda, double saldo) {
-		this.id = id;
+	public Caixa(double saldo, String rg) {
 		this.saldo = saldo;
+		this.rg = rg;
 	}
 
 	// METODOS
@@ -62,5 +65,13 @@ public class Caixa implements Serializable {
 
 	public void addVenda(Venda venda) {
 		this.vendas.add(venda);
+	}
+	
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 }

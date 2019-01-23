@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Produto implements Serializable{
@@ -14,7 +15,7 @@ public class Produto implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "produto_id")
 	private Long id;
 
@@ -28,14 +29,14 @@ public class Produto implements Serializable{
 	private int qntd;
 	
 	@Column(name = "produto_cat_id", nullable = false, length = 2)
+	@JoinColumn
 	private int id_categoria;
 	
 	//CONSTRUTORES
-	protected Produto() {
+	public Produto() {
 	}
 	
-	public Produto(Long id,String nome, double valor, int qntd, int id_categoria) {
-		this.id = id;
+	public Produto(String nome, double valor, int qntd, int id_categoria) {
 		this.nome = nome;
 		this.valor = valor;
 		this.qntd = qntd;

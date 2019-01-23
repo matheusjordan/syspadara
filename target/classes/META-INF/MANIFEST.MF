@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
-Built-By: root
-Build-Jdk: 10.0.2
 Implementation-Title: Padaria System
 Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: aluno
 Implementation-Vendor-Id: br.facisa.si.treinamento.syspadara
+Build-Jdk: 1.8.0_191
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/syspadara
 Created-By: Maven Integration for Eclipse
