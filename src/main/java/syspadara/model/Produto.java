@@ -1,26 +1,33 @@
 package syspadara.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 @Entity
-@Table(name = "PRODUTO")
 public class Produto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "produto_id")
 	private int id;
 
+	@Column(name = "produto_nome", nullable = false, unique = true, length = 50)
 	private String nome;
+	
+	@Column(name = "produto_valor", nullable = false)
 	private double valor;
+	
+	@Column(name = "produto_qntd", nullable = false)
 	private int qntd;
+	
+	@Column(name = "produto_cat_id", nullable = false, length = 2)
 	private int id_categoria;
 	
 	//CONSTRUTORES
