@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Venda implements Serializable {
@@ -27,7 +28,7 @@ public class Venda implements Serializable {
 	private List<Produto> produtos;
 
 	// CONSTRUTORES
-	protected Venda() {
+	public Venda() {
 	}
 
 	public Venda(double valor) {
@@ -50,5 +51,12 @@ public class Venda implements Serializable {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
+	
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
 
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
 }

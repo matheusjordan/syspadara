@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import syspadara.dto.cadastro.CadastroVenda;
 import syspadara.model.Venda;
 import syspadara.repository.VendaRepository;
 
@@ -14,7 +15,15 @@ public class VendaService {
 	@Autowired
 	private VendaRepository repository;
 	
-	public String createVenda(Venda venda) {
+	@Autowired
+	private ProdutoService produtoService;
+	
+	public String createVenda(CadastroVenda cadastro) {
+		Venda venda = new Venda();
+		
+		venda.setProdutos(produtoService.findProdutos(cadastro.getProdutos()));
+//		venda.setValor(produtoService.ProdutosValorPorQuantidade(produtoService.findProdutos(cadastro.getProdutos()), cadastro.getQntds()));
+
 		repository.save(venda);
 		return "Criado";
 	}
