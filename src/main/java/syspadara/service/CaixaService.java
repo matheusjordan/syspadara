@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import syspadara.dto.cadastro.CadastroCaixa;
 import syspadara.model.Caixa;
 import syspadara.repository.CaixaRepository;
 
@@ -14,14 +15,14 @@ public class CaixaService {
 	@Autowired
 	private CaixaRepository repository;
 	
-	public String createCaixa(Caixa caixa) {
+	public void createCaixa(CadastroCaixa cadastro) {
 		
-		if(caixa.getRg().length() != 3) {
-			return "Nao criado";
-		}
+		//ciaxa recebe o valor do dto CadastroCaixa
+		Caixa caixa = new Caixa();
+		caixa.setRg(cadastro.getRg());
 		
 		repository.save(caixa);
-		return "Criado";
+		System.out.println("Cadastrado");
 	}
 	
 	public Caixa readCaixa(Long id) {

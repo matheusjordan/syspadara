@@ -30,7 +30,7 @@ public class Caixa implements Serializable {
 	private List<Venda> vendas;
 
 	// CONSTRUTORES
-	protected Caixa() {
+	public Caixa() {
 	}
 
 	public Caixa(double saldo, String rg) {

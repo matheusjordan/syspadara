@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import syspadara.dto.cadastro.CadastroCaixa;
 import syspadara.model.Caixa;
 import syspadara.service.CaixaService;
 
@@ -31,8 +32,8 @@ public class CaixaController {
 	}
 	
 	@PostMapping("novo")
-	public ResponseEntity<Caixa> createCaixa(@RequestBody Caixa caixa){
-		service.createCaixa(caixa);
+	public ResponseEntity<Caixa> createCaixa(@RequestBody CadastroCaixa dtoCaixa){
+		service.createCaixa(dtoCaixa);
 		return new ResponseEntity<Caixa>(HttpStatus.CREATED);
 	}
 	

@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 
 @Entity
 public class Produto implements Serializable{
@@ -28,10 +27,6 @@ public class Produto implements Serializable{
 	@Column(name = "produto_qntd", nullable = false)
 	private int qntd;
 	
-	@Column(name = "produto_cat_id", nullable = false, length = 2)
-	@JoinColumn
-	private int id_categoria;
-	
 	//CONSTRUTORES
 	public Produto() {
 	}
@@ -40,7 +35,6 @@ public class Produto implements Serializable{
 		this.nome = nome;
 		this.valor = valor;
 		this.qntd = qntd;
-		this.id_categoria = id_categoria;
 	}
 	
 	//METODOS
@@ -71,13 +65,5 @@ public class Produto implements Serializable{
 	public void setQntd(int qntd) {
 		this.qntd = qntd;
 	}
-	
-	public int getId_categoria() {
-		return id_categoria;
-	}
-	public void setId_categoria(int id_categoria) {
-		this.id_categoria = id_categoria;
-	}
-	
-	
+
 }

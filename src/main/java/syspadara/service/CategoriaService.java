@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import syspadara.dto.cadastro.CadastroCategoria;
 import syspadara.model.Categoria;
 import syspadara.repository.CategoriaRepository;
 
@@ -14,9 +15,14 @@ public class CategoriaService {
 	@Autowired
 	private CategoriaRepository repository;
 	
-	public void createCategoria(Categoria categoria) {
+	public void createCategoria(CadastroCategoria cadastro) {
+		
+		//Recebe o valor de CadastroCategoria
+		Categoria categoria = new Categoria();
+		categoria.setNome(cadastro.getNome());
+		
 		this.repository.save(categoria);
-		System.out.println("Cadastrado");;
+		System.out.println("Cadastrado");
 	}
 	
 	public Categoria readCategoria(Long id) {
