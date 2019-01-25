@@ -60,7 +60,6 @@ public class ProdutoService {
 	}
 	
 	public List<Produto> findAllNomes(String nome){
-		System.out.println(nome);
 		return repository.buscarProduto(nome);
 	}
 	
