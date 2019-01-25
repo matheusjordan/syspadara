@@ -34,19 +34,19 @@ public class CategoriaController {
 	@PostMapping("novo")
 	public ResponseEntity<Categoria> createCategoria(@RequestBody CadastroCategoria cadastro) {
 		service.createCategoria(cadastro);
-		return new ResponseEntity<Categoria>(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
 	@PutMapping("atualizacao")
 	public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria) {
 		service.updateCategoria(categoria);
-		return new ResponseEntity<Categoria>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("{id}/exclusao")
 	public ResponseEntity<Categoria> deleteCategoria(@PathVariable(name = "id") Long id) {
 		service.deleteCategoria(id);
-		return new ResponseEntity<Categoria>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@GetMapping("/todos")

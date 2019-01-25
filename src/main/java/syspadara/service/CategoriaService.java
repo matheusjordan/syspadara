@@ -15,6 +15,7 @@ public class CategoriaService {
 	@Autowired
 	private CategoriaRepository repository;
 	
+	// Funções CRUD***
 	public void createCategoria(CadastroCategoria cadastro) {
 		
 		//Recebe o valor de CadastroCategoria
@@ -29,15 +30,16 @@ public class CategoriaService {
 		return repository.findById(id).get();
 	}
 	
-	public String updateCategoria(Categoria categoria) {
+	public void updateCategoria(Categoria categoria) {
 		repository.save(categoria);
-		return "Atualizado";
+		System.out.println("Atualizado");
 	}
 	
-	public String deleteCategoria(Long id) {
+	public void deleteCategoria(Long id) {
 		repository.deleteById(id);
-		return "Deletado";
+		System.out.println("Deletado");
 	}
+	// *************
 	
 	public List<Categoria> readAll(){
 		return repository.findAll();

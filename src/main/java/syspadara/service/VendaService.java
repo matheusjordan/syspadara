@@ -11,38 +11,37 @@ import syspadara.repository.VendaRepository;
 
 @Service
 public class VendaService {
-	
+
 	@Autowired
 	private VendaRepository repository;
-	
+
 	@Autowired
 	private ProdutoService produtoService;
-	
-	public String createVenda(CadastroVenda cadastro) {
-		Venda venda = new Venda();
-		
-		venda.setProdutos(produtoService.findProdutos(cadastro.getProdutos()));
-//		venda.setValor(produtoService.ProdutosValorPorQuantidade(produtoService.findProdutos(cadastro.getProdutos()), cadastro.getQntds()));
 
+	// Funções CRUD***
+	public void createVenda(CadastroVenda cadastro) {
+		Venda venda = new Venda();
+		venda.setProdutos(produtoService.findProdutos(cadastro.getProdutos()));
 		repository.save(venda);
-		return "Criado";
+		System.out.println("Criado");
 	}
-	
+
 	public Venda readVenda(Long id) {
 		return repository.findById(id).get();
 	}
-	
-	public String updateVenda(Venda venda) {
+
+	public void updateVenda(Venda venda) {
 		repository.save(venda);
-		return "Atualizado";
+		System.out.println("Atualizado");
 	}
-	
-	public String deleteVenda(Long id) {
+
+	public void deleteVenda(Long id) {
 		Venda venda = repository.findById(id).get();
 		repository.delete(venda);
-		return "Deletado";
+		System.out.println("Deletado");
 	}
-	
+	// *************
+
 	public List<Venda> readAll() {
 		return repository.findAll();
 	}

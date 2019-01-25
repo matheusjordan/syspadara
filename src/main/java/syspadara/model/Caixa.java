@@ -12,9 +12,9 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Caixa implements Serializable {
-
-	private static final long serialVersionUID = 1L;
 	
+	private static final long serialVersionUID = -7867335362151450132L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "caixa_id")
@@ -22,9 +22,6 @@ public class Caixa implements Serializable {
 	
 	@Column(name = "caixa_saldo", nullable = false)
 	private double saldo;
-	
-	@Column(name = "caixa_rg", nullable = false, unique = true)
-	private String rg;
 
 	@OneToMany
 	private List<Venda> vendas;
@@ -33,9 +30,9 @@ public class Caixa implements Serializable {
 	public Caixa() {
 	}
 
-	public Caixa(double saldo, String rg) {
-		this.saldo = saldo;
-		this.rg = rg;
+	public Caixa(List<Venda> vendas) {
+		this.vendas = vendas;
+		this.setSaldo();
 	}
 
 	// METODOS
@@ -51,8 +48,10 @@ public class Caixa implements Serializable {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
+	private void setSaldo() {
+		for(Venda venda : vendas) {
+			this.saldo += venda.getValor();
+		}
 	}
 
 	public List<Venda> getVendas() {
@@ -61,17 +60,5 @@ public class Caixa implements Serializable {
 
 	public void setVendas(List<Venda> vendas) {
 		this.vendas = vendas;
-	}
-
-	public void addVenda(Venda venda) {
-		this.vendas.add(venda);
-	}
-	
-	public String getRg() {
-		return rg;
-	}
-
-	public void setRg(String rg) {
-		this.rg = rg;
 	}
 }

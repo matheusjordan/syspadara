@@ -33,19 +33,19 @@ public class VendaController {
 	@RequestMapping("novo")
 	public ResponseEntity<Venda> createVenda(@RequestBody CadastroVenda cadastro){
 		service.createVenda(cadastro);
-		return new ResponseEntity<Venda>(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@PutMapping("atualizacao")
 	public ResponseEntity<Venda> updateVenda(@RequestBody Venda venda){
 		service.updateVenda(venda);
-		return new ResponseEntity<Venda>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@DeleteMapping("{id}/exclusao")
 	public ResponseEntity<Venda> deleteVenda(@PathVariable(name = "id") Long id){
 		service.deleteVenda(id);
-		return new ResponseEntity<Venda>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@RequestMapping("todos")

@@ -14,18 +14,15 @@ import javax.persistence.OneToMany;
 @Entity
 public class Categoria implements Serializable{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4716038753114460847L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "categoria_id")
+	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "categoria_nome", nullable = false, unique = true, length = 20)
+	@Column(name = "nome", nullable = false, unique = true, length = 100)
 	private String nome;
-	
-	@Column(name = "categoria_status", nullable = false, length = 1)
-	private int status;
 	
 	@OneToMany
 	@JoinColumn(name = "categoria_id")
@@ -35,9 +32,9 @@ public class Categoria implements Serializable{
 	public Categoria() {
 	}
 	
-	public Categoria(String nome, int status) {
+	public Categoria(String nome, List<Produto> produtos) {
 		this.nome = nome;
-		this.status = status;
+		this.produtos = produtos;
 	}
 	
 	//METODOS
@@ -59,20 +56,10 @@ public class Categoria implements Serializable{
 		this.nome = nome;
 	}
 	
-	public int getStatus() {
-		return status;
-	}
-	public void setStatus(int status) {
-		this.status = status;
-	}
-	
 	public List<Produto> getProdutos() {
 		return this.produtos;
 	}
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
-	}
-	public void addProduto(Produto produto) {
-		this.produtos.add(produto);
 	}
 }

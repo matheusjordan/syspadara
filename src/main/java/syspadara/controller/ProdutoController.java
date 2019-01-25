@@ -35,13 +35,13 @@ public class ProdutoController {
 	@PostMapping("novo")
 	public ResponseEntity<Produto> createProduto(@RequestBody CadastroProduto cadastro) {
 		service.createProduto(cadastro);
-		return new ResponseEntity<Produto>(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
 	@PutMapping("atualizacao")
 	public ResponseEntity<Produto> updateProduto(@RequestBody Produto produto) {
 		service.updateProduto(produto);
-		return new ResponseEntity<Produto>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("{id}/exclusao")

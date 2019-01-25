@@ -8,33 +8,47 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Venda implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1611715179517343039L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "venda_id")
+	@Column(name = "id")
 	private Long id;
-	
-	@Column(name = "venda_valor", nullable = false)
-	private double valor;
-	
-	@OneToMany
+
+	@Column(name = "valor_total")
+	private Double valor;
+
+	@ManyToMany
+	@JoinTable(name = "venda_produtos")
 	private List<Produto> produtos;
 
 	// CONSTRUTORES
 	public Venda() {
 	}
 
-	public Venda(double valor) {
-		this.valor = valor;
+	public Venda(List<Produto> produtos) {
+		this.produtos = produtos;
+		this.setValor();
+
 	}
 
 	// METODOS
+	public Double getValor() {
+		return valor;
+	}
+
+	private void setValor() {
+		for (Produto produto : this.produtos) {
+			this.valor += produto.getValor();
+		}
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -43,14 +57,6 @@ public class Venda implements Serializable {
 		this.id = id;
 	}
 
-	public double getValor() {
-		return valor;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-	
 	public List<Produto> getProdutos() {
 		return produtos;
 	}

@@ -11,30 +11,25 @@ import javax.persistence.Id;
 @Entity
 public class Produto implements Serializable{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8757157320173883249L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "produto_id")
 	private Long id;
 
-	@Column(name = "produto_nome", nullable = false, unique = true, length = 50)
+	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
 	
-	@Column(name = "produto_valor", nullable = false)
+	@Column(name = "valor", nullable = false)
 	private double valor;
-	
-	@Column(name = "produto_qntd", nullable = false)
-	private int qntd;
 	
 	//CONSTRUTORES
 	public Produto() {
 	}
 	
-	public Produto(String nome, double valor, int qntd, int id_categoria) {
+	public Produto(String nome, double valor) {
 		this.nome = nome;
 		this.valor = valor;
-		this.qntd = qntd;
 	}
 	
 	//METODOS
@@ -58,12 +53,4 @@ public class Produto implements Serializable{
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	
-	public int getQntd() {
-		return qntd;
-	}
-	public void setQntd(int qntd) {
-		this.qntd = qntd;
-	}
-
 }

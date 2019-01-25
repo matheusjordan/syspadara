@@ -2,15 +2,13 @@
 
 O sistema da padaria de seu joaquim está sendo feito utilizando o JavaEE, Maven, Eclipse e seguindo o padrão de projeto MVC.
 
-(22/01/2019) Seu joaquim está muito contente com o progresso do sistema e decidiu investir mais R$ 500.000,00 (Quinhentos Mil Reais)
+(22/01/2019) - ''''Atualização'''' > Dia da Recriação do sistema.
 
-DTO -> Possui as informações nescesarias de alguma entidade
+(25/01/2019) - Atualização para versão 1.0.0 -:
+1- Adicionado Classe [Estoque]
+2- Removido qntd_produto da Classe [Produto]
+3- Renomeado nome das colunas das Classes [Categoria, Produto, Categoria e Venda]
+5- Criado [Repository, Service e Controller] da Classe [Estoque]
+6- Refatorado [Repository, Service e Controller das Classes [Categoria, Produto, Categoria e Venda]
 
-@JoinColumn(name ="tabela") ->
-	-OneToOne -> Criar uma coluna na propria entidade
-	-OneToMany -> Cria uma coluna na entidade fraca com a chave estrangeria da entidade forte
-
-@JoinTable(name = "") ->
-	-ManyToMany -> Cria uma tabela pivot entre duas entidades
-
-@JoinTable(name = tabela, joinColumns=@JoinColumn(name = colun1), inverseJoinColumns=@JoinColumn(name = colun2))
+OBS: Pacote dto.cadastro em construção
