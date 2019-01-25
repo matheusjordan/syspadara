@@ -59,6 +59,11 @@ public class ProdutoService {
 		return repository.findByNome(nome);
 	}
 	
+	public List<Produto> findAllNomes(String nome){
+		System.out.println(nome);
+		return repository.buscarProduto(nome);
+	}
+	
 //	public List<Produto> findFind(String nome){
 //		return repository.findAllByNome(nome);
 //	}

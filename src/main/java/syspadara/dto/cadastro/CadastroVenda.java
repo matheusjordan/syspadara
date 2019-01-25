@@ -1,9 +1,10 @@
 package syspadara.dto.cadastro;
 
+import java.io.Serializable;
 import java.util.List;
 
 //DTO para cadastrar vendas
-public class CadastroVenda {
+public class CadastroVenda implements Serializable{
 	private List<Long> produtos;
 	
 //	private List<Integer> qntds;
