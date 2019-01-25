@@ -19,9 +19,9 @@ public class VendaService {
 	private ProdutoService produtoService;
 
 	// Funções CRUD***
-	public void createVenda(CadastroVenda cadastro) {
-		Venda venda = new Venda();
-		venda.setProdutos(produtoService.findProdutos(cadastro.getProdutos()));
+	public void createVenda(Venda venda) {
+//		Venda venda = new Venda();
+//		venda.setProdutos(produtoService.findProdutos(cadastro.getProdutos()));
 		repository.save(venda);
 		System.out.println("Criado");
 	}

@@ -18,10 +18,10 @@ public class ProdutoService {
 	
 	
 	//Funções CRUD***
-	public void createProduto(CadastroProduto cadastro) {
-		Produto produto = new Produto();
-		produto.setNome(cadastro.getNome());
-		produto.setValor(cadastro.getValor());
+	public void createProduto(Produto produto) {
+//		Produto produto = new Produto();
+//		produto.setNome(cadastro.getNome());
+//		produto.setValor(cadastro.getValor());
 		repository.save(produto);
 		System.out.println("Criado");
 	}

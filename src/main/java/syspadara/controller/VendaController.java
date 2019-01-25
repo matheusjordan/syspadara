@@ -31,8 +31,8 @@ public class VendaController {
 	}
 	
 	@RequestMapping("novo")
-	public ResponseEntity<Venda> createVenda(@RequestBody CadastroVenda cadastro){
-		service.createVenda(cadastro);
+	public ResponseEntity<Venda> createVenda(@RequestBody Venda venda){
+		service.createVenda(venda);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	

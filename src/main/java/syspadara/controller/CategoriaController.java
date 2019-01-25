@@ -32,7 +32,7 @@ public class CategoriaController {
 	}
 
 	@PostMapping("novo")
-	public ResponseEntity<Categoria> createCategoria(@RequestBody CadastroCategoria cadastro) {
+	public ResponseEntity<Categoria> createCategoria(@RequestBody Categoria cadastro) {
 		service.createCategoria(cadastro);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

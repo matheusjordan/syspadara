@@ -33,8 +33,8 @@ public class ProdutoController {
 	}
 
 	@PostMapping("novo")
-	public ResponseEntity<Produto> createProduto(@RequestBody CadastroProduto cadastro) {
-		service.createProduto(cadastro);
+	public ResponseEntity<Produto> createProduto(@RequestBody Produto produto) {
+		service.createProduto(produto);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 

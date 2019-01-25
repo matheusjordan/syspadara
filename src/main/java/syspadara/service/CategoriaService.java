@@ -16,12 +16,12 @@ public class CategoriaService {
 	private CategoriaRepository repository;
 	
 	// Funções CRUD***
-	public void createCategoria(CadastroCategoria cadastro) {
-		
-		//Recebe o valor de CadastroCategoria
-		Categoria categoria = new Categoria();
-		categoria.setNome(cadastro.getNome());
-		
+	public void createCategoria(Categoria categoria) {
+//		
+//		//Recebe o valor de CadastroCategoria
+//		Categoria categoria = new Categoria();
+//		categoria.setNome(cadastro.getNome());
+//		
 		this.repository.save(categoria);
 		System.out.println("Cadastrado");
 	}
