@@ -54,4 +54,17 @@ public class ProdutoController {
 		List<Produto> produtos = service.readAll();
 		return new ResponseEntity<List<Produto>>(produtos, HttpStatus.OK);
 	}
+	
+	@GetMapping("/find/{nome}")
+	public ResponseEntity<Produto> findByNome(@PathVariable(name = "nome") String nome){
+		Produto produto = service.findByNome(nome);
+		return new ResponseEntity<Produto>(produto,HttpStatus.OK);
+	}
+	
+//	@GetMapping("/find/find/{nome}")
+//	public ResponseEntity<List<Produto>> findAllByNome(@PathVariable(name = "nome") String nome){
+//		List<Produto> produtos = service.findFind(nome);
+//		return new ResponseEntity<List<Produto>>(produtos,HttpStatus.OK);
+//	}
+	
 }

@@ -55,6 +55,14 @@ public class ProdutoService {
 		return produtos;
 	}
 	
+	public Produto findByNome(String nome) {
+		return repository.findByNome(nome);
+	}
+	
+//	public List<Produto> findFind(String nome){
+//		return repository.findAllByNome(nome);
+//	}
+	
 	//Função para retornar o valor total de uma lista de produtos
 	//total = valor * qntd
 //	public double ProdutosValorPorQuantidade(List<Produto> produtos, List<Integer> qntds) {
