@@ -17,7 +17,7 @@ public class Venda implements Serializable {
 	private static final long serialVersionUID = 1611715179517343039L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 
@@ -34,8 +34,6 @@ public class Venda implements Serializable {
 
 	public Venda(List<Produto> produtos) {
 		this.produtos = produtos;
-		this.setValor();
-
 	}
 
 	// METODOS
@@ -43,10 +41,8 @@ public class Venda implements Serializable {
 		return valor;
 	}
 
-	private void setValor() {
-		for (Produto produto : this.produtos) {
-			this.valor += produto.getValor();
-		}
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 
 	public Long getId() {

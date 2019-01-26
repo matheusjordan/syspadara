@@ -16,7 +16,7 @@ public class Caixa implements Serializable {
 	private static final long serialVersionUID = -7867335362151450132L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "caixa_id")
 	private Long id;
 	
@@ -32,7 +32,6 @@ public class Caixa implements Serializable {
 
 	public Caixa(List<Venda> vendas) {
 		this.vendas = vendas;
-		this.setSaldo();
 	}
 
 	// METODOS
@@ -48,10 +47,8 @@ public class Caixa implements Serializable {
 		return saldo;
 	}
 
-	private void setSaldo() {
-		for(Venda venda : vendas) {
-			this.saldo += venda.getValor();
-		}
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
 	}
 
 	public List<Venda> getVendas() {

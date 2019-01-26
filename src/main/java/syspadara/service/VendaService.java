@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import syspadara.dto.cadastro.CadastroVenda;
+import syspadara.dto.cadastro.VendaDto;
 import syspadara.model.Venda;
 import syspadara.repository.VendaRepository;
 
@@ -14,14 +14,27 @@ public class VendaService {
 
 	@Autowired
 	private VendaRepository repository;
-
-	@Autowired
-	private ProdutoService produtoService;
-
+	
+//	Futura implementação de incremento e decremento de estoque
+//	@Autowired
+//	private EstoqueService estoqueSer;
+	
+	@Autowired 
+	private ProdutoService produtoSer;
+	
 	// Funções CRUD***
-	public void createVenda(Venda venda) {
-//		Venda venda = new Venda();
-//		venda.setProdutos(produtoService.findProdutos(cadastro.getProdutos()));
+	public void createVenda(VendaDto cadastro) {
+		
+		Venda venda = new Venda();
+		venda.setProdutos(produtoSer.findProdutos(cadastro.getProdutosId()));
+		
+		double valor = 0;
+		for(int i=0; i < venda.getProdutos().size(); i++) {
+			valor += venda.getProdutos().get(i).getValor() * cadastro.getProdutosQntd().get(i);
+		}
+		
+		venda.setValor(valor);
+		
 		repository.save(venda);
 		System.out.println("Criado");
 	}
@@ -44,5 +57,10 @@ public class VendaService {
 
 	public List<Venda> readAll() {
 		return repository.findAll();
+	}
+	
+	//Buscar vendas pelo Id
+	public List<Venda> findVendas(List<Long> vendasId){
+		return repository.findAllById(vendasId);
 	}
 }

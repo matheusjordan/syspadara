@@ -14,8 +14,8 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 	
 	Produto findByNome(String nome);
 	
-	@Query(value = "select * from produto where produto_nome like %:name%",
+	@Query(value = "select * from produto where nome like %:nome%",
 			nativeQuery = true)
-	List<Produto> buscarProduto(@Param("name") String nome);
+	List<Produto> buscarProduto(@Param("nome") String nome);
 	
 }

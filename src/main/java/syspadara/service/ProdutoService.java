@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import syspadara.dto.cadastro.CadastroProduto;
 import syspadara.model.Produto;
 import syspadara.repository.ProdutoRepository;
 
@@ -19,9 +18,6 @@ public class ProdutoService {
 	
 	//Funções CRUD***
 	public void createProduto(Produto produto) {
-//		Produto produto = new Produto();
-//		produto.setNome(cadastro.getNome());
-//		produto.setValor(cadastro.getValor());
 		repository.save(produto);
 		System.out.println("Criado");
 	}
@@ -57,6 +53,10 @@ public class ProdutoService {
 		return produtos;
 	}
 	
+	//Função para encontrar produto pelo ID
+	public Produto findProduto(Long id) {
+		return repository.findById(id).get();
+	}
 	
 	//Revisar as funções abaixo Status -> < NOT OK >
 	public Produto findByNome(String nome) {
