@@ -21,9 +21,6 @@ public class Venda implements Serializable {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "valor_total")
-	private Double valor;
-
 	@ManyToMany
 	@JoinTable(name = "venda_produtos")
 	private List<Produto> produtos;
@@ -37,14 +34,6 @@ public class Venda implements Serializable {
 	}
 
 	// METODOS
-	public Double getValor() {
-		return valor;
-	}
-
-	public void setValor(Double valor) {
-		this.valor = valor;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -59,5 +48,9 @@ public class Venda implements Serializable {
 
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
+	}
+	
+	public void addProduto(Produto produto) {
+		this.produtos.add(produto);
 	}
 }

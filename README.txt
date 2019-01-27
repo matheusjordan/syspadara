@@ -20,8 +20,13 @@ O sistema da padaria de seu joaquim está sendo feito utilizando o JavaEE, Maven
 6- Adicionado DTO [CaixaAddVendas]
 7- Adicionado dependencia [swagger-jaxrs2]
 
-(26/01/2019) - Atualização para versao 1.4.0 -:
+- Atualização para versao 1.4.0 -:
 1- Removido atributo valor_estoque da Classe [Estoque]
 2- Adicionado DTO [EstoqueEditQntd]
 3- Adicionado funcionalidade editQntd à Classe [EstoqueService]
 4- Adicionado path "atualizacao/qntd" à Classe [EstoqueController]
+
+(27/01/2019) - Atualização para versao 1.5.0 -:
+1- Criado DTO [CadastroProduto]
+2- Alterado funcionalidade [createProduto] na Classe [ProdutoService]
+3- Adicionado verificação da quantidade vendidas

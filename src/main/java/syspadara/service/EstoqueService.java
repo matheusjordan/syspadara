@@ -1,5 +1,6 @@
 package syspadara.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,11 @@ public class EstoqueService {
 	
 	// Funções CRUD***
 	public void createEstoque(EstoqueCadastro cadastro) {
-		
-		// Dto utilizado possui um Long que será convertido em Produto,
-		// após passar pelo metodo findProduto de ProdutoService
 		Estoque estoque = new Estoque();
+		
 		estoque.setProduto(produtoSer.findProduto(cadastro.getProdutoId()));
 		estoque.setProdutoQntd(cadastro.getQntd());
+		
 		estoqueRepo.save(estoque);
 		System.out.println("Criado");
 	}
@@ -50,11 +50,26 @@ public class EstoqueService {
 		return estoqueRepo.findAll();
 	}
 	
+	//Função que retorna a quantidade do produto no estoque
+	public Integer findProdutoEstoque(Long id) {
+		return estoqueRepo.findById(id).get().getProdutoQntd();
+	}
+	
 	//Função para alterar a quantidade de um produto no estoque
 	public void editQntd(EstoqueEditQntd editQntd) {
 		Estoque estoque = estoqueRepo.findById(editQntd.getEstoqueId()).get();
 		estoque.setProdutoQntd(editQntd.getProdutoQntd());
 		estoqueRepo.save(estoque);
 		System.out.println("Atualizado quantidade no estoque!");
+	}
+	
+	//Função para retornar os Ids dos produtos cadastrados no estoque
+	public List<Long> findProdutosId() {
+		List<Long> produtosId = new ArrayList<>();
+		
+		for(int i=0; i<estoqueRepo.findAll().size(); i++) {
+			produtosId.add(estoqueRepo.findAll().get(i).getProduto().getId());
+		}
+		return produtosId;	
 	}
 }

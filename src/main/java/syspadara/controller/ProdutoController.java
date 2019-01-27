@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import syspadara.dto.produto.ProdutoCadastro;
 import syspadara.model.Produto;
 import syspadara.service.ProdutoService;
 
@@ -31,8 +32,8 @@ public class ProdutoController {
 	}
 
 	@PostMapping("novo")
-	public ResponseEntity<Produto> createProduto(@RequestBody Produto produto) {
-		service.createProduto(produto);
+	public ResponseEntity<Produto> createProduto(@RequestBody ProdutoCadastro cadastro) {
+		service.createProduto(cadastro);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
