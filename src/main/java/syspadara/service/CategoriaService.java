@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import syspadara.dto.cadastro.CategoriaDto;
+import syspadara.dto.categoria.CategoriaCadastro;
 import syspadara.model.Categoria;
 import syspadara.repository.CategoriaRepository;
 
@@ -19,7 +19,7 @@ public class CategoriaService {
 	private ProdutoService produtoSer;
 
 	// Funções CRUD***
-	public void createCategoria(CategoriaDto cadastro) {
+	public void createCategoria(CategoriaCadastro cadastro) {
 		// Dto utilizado possui uma Lista de Longs que será convertido em Produtos,
 		// após passar pelo metodo findProdutos de ProdutoService
 		Categoria categoria = new Categoria();

@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import syspadara.dto.cadastro.CaixaDto;
+import syspadara.dto.caixa.CaixaAddVendas;
+import syspadara.dto.caixa.CaixaCadastro;
 import syspadara.model.Caixa;
 import syspadara.service.CaixaService;
 
@@ -32,7 +33,7 @@ public class CaixaController {
 	}
 	
 	@PostMapping("novo")
-	public ResponseEntity<Caixa> createCaixa(@RequestBody CaixaDto cadastro){
+	public ResponseEntity<Caixa> createCaixa(@RequestBody CaixaCadastro cadastro){
 		service.createCaixa(cadastro);
 		return new ResponseEntity<Caixa>(HttpStatus.CREATED);
 	}
@@ -53,5 +54,12 @@ public class CaixaController {
 	public ResponseEntity<List<Caixa>> readAll(){
 		List<Caixa> caixas = service.readAll();
 		return new ResponseEntity<List<Caixa>>(caixas, HttpStatus.OK);
+	}
+	
+	//Função para adicionar uma venda a um determinado caixa
+	@PutMapping("atualizacao/venda")
+	public ResponseEntity<Caixa> addCaixaVenda(@RequestBody CaixaAddVendas addVendas){
+		service.addVendas(addVendas);
+		return new ResponseEntity<Caixa>(HttpStatus.OK);
 	}
 }

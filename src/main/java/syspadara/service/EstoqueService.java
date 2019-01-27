@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import syspadara.dto.cadastro.EstoqueDto;
+import syspadara.dto.estoque.EstoqueCadastro;
 import syspadara.model.Estoque;
 import syspadara.repository.EstoqueRepository;
 
@@ -19,7 +19,7 @@ public class EstoqueService {
 	private ProdutoService produtoSer;
 	
 	// Funções CRUD***
-	public void createEstoque(EstoqueDto cadastro) {
+	public void createEstoque(EstoqueCadastro cadastro) {
 		
 		// Dto utilizado possui um Long que será convertido em Produto,
 		// após passar pelo metodo findProduto de ProdutoService

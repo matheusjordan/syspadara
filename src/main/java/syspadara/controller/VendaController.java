@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import syspadara.dto.cadastro.VendaDto;
+import syspadara.dto.venda.VendaCadastro;
 import syspadara.model.Venda;
 import syspadara.service.VendaService;
 
@@ -31,7 +31,7 @@ public class VendaController {
 	}
 	
 	@RequestMapping("novo")
-	public ResponseEntity<Venda> createVenda(@RequestBody VendaDto cadastro){
+	public ResponseEntity<Venda> createVenda(@RequestBody VendaCadastro cadastro){
 		service.createVenda(cadastro);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import syspadara.dto.cadastro.VendaDto;
+import syspadara.dto.venda.VendaCadastro;
 import syspadara.model.Venda;
 import syspadara.repository.VendaRepository;
 
@@ -23,7 +23,7 @@ public class VendaService {
 	private ProdutoService produtoSer;
 	
 	// Funções CRUD***
-	public void createVenda(VendaDto cadastro) {
+	public void createVenda(VendaCadastro cadastro) {
 		
 		Venda venda = new Venda();
 		venda.setProdutos(produtoSer.findProdutos(cadastro.getProdutosId()));
@@ -62,5 +62,10 @@ public class VendaService {
 	//Buscar vendas pelo Id
 	public List<Venda> findVendas(List<Long> vendasId){
 		return repository.findAllById(vendasId);
+	}
+	
+	//Buscar venda pelo Id
+	public Venda findVenda(Long vendaId) {
+		return repository.findById(vendaId).get();
 	}
 }

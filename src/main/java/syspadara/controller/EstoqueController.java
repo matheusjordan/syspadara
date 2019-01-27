@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import syspadara.dto.cadastro.EstoqueDto;
+import syspadara.dto.estoque.EstoqueCadastro;
 import syspadara.model.Estoque;
 import syspadara.service.EstoqueService;
 
@@ -31,7 +31,7 @@ public class EstoqueController {
 	}
 	
 	@PostMapping("novo")
-	public ResponseEntity<Estoque> createEstoque(@RequestBody EstoqueDto cadastro){
+	public ResponseEntity<Estoque> createEstoque(@RequestBody EstoqueCadastro cadastro){
 		service.createEstoque(cadastro);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

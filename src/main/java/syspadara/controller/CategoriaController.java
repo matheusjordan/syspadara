@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import syspadara.dto.cadastro.CategoriaDto;
+import syspadara.dto.categoria.CategoriaCadastro;
 import syspadara.model.Categoria;
 import syspadara.service.CategoriaService;
 
@@ -32,7 +32,7 @@ public class CategoriaController {
 	}
 
 	@PostMapping("novo")
-	public ResponseEntity<Categoria> createCategoria(@RequestBody CategoriaDto cadastro) {
+	public ResponseEntity<Categoria> createCategoria(@RequestBody CategoriaCadastro cadastro) {
 		service.createCategoria(cadastro);
 		return new ResponseEntity<Categoria>(HttpStatus.CREATED);
 	}

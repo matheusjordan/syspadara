@@ -20,8 +20,8 @@ public class Caixa implements Serializable {
 	@Column(name = "caixa_id")
 	private Long id;
 	
-	@Column(name = "caixa_saldo", nullable = false)
-	private double saldo;
+//	@Column(name = "caixa_saldo", nullable = false)
+//	private double saldo;
 
 	@OneToMany
 	private List<Venda> vendas;
@@ -43,13 +43,13 @@ public class Caixa implements Serializable {
 		this.id = id;
 	}
 
-	public double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
-	}
+//	public double getSaldo() {
+//		return saldo;
+//	}
+//
+//	public void setSaldo(Double saldo) {
+//		this.saldo = saldo;
+//	}
 
 	public List<Venda> getVendas() {
 		return vendas;
@@ -57,5 +57,9 @@ public class Caixa implements Serializable {
 
 	public void setVendas(List<Venda> vendas) {
 		this.vendas = vendas;
+	}
+	
+	public void addVenda(Venda venda) {
+		this.vendas.add(venda);
 	}
 }
