@@ -13,7 +13,7 @@ import syspadara.repository.CategoriaRepository;
 public class CategoriaService {
 
 	@Autowired
-	private CategoriaRepository repository;
+	private CategoriaRepository categoriaRepo;
 
 	@Autowired
 	private ProdutoService produtoSer;
@@ -27,30 +27,30 @@ public class CategoriaService {
 		categoria.setNome(cadastro.getNome());
 		categoria.setProdutos(produtoSer.findProdutos(cadastro.getProdutosId()));
 
-		this.repository.save(categoria);
+		this.categoriaRepo.save(categoria);
 		System.out.println("Cadastrado");
 	}
 
 	public Categoria readCategoria(Long id) {
-		return repository.findById(id).get();
+		return categoriaRepo.findById(id).get();
 	}
 
 	public void updateCategoria(Categoria categoria) {
-		repository.save(categoria);
+		categoriaRepo.save(categoria);
 		System.out.println("Atualizado");
 	}
 
 	public void deleteCategoria(Long id) {
-		repository.deleteById(id);
+		categoriaRepo.deleteById(id);
 		System.out.println("Deletado");
 	}
 	// *************
 
 	public List<Categoria> readAll() {
-		return repository.findAll();
+		return categoriaRepo.findAll();
 	}
 
 	public List<Categoria> findByNome(String nome) {
-		return repository.findByNome(nome);
+		return categoriaRepo.findByNome(nome);
 	}
 }

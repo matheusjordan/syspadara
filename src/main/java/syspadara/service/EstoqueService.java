@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import syspadara.dto.estoque.EstoqueCadastro;
+import syspadara.dto.estoque.EstoqueEditQntd;
 import syspadara.model.Estoque;
 import syspadara.repository.EstoqueRepository;
 
@@ -26,7 +27,6 @@ public class EstoqueService {
 		Estoque estoque = new Estoque();
 		estoque.setProduto(produtoSer.findProduto(cadastro.getProdutoId()));
 		estoque.setProdutoQntd(cadastro.getQntd());
-		estoque.setValorEstoque(estoque.getProduto().getValor() * estoque.getProdutoQntd());
 		estoqueRepo.save(estoque);
 		System.out.println("Criado");
 	}
@@ -48,5 +48,13 @@ public class EstoqueService {
 
 	public List<Estoque> findAll() {
 		return estoqueRepo.findAll();
+	}
+	
+	//Função para alterar a quantidade de um produto no estoque
+	public void editQntd(EstoqueEditQntd editQntd) {
+		Estoque estoque = estoqueRepo.findById(editQntd.getEstoqueId()).get();
+		estoque.setProdutoQntd(editQntd.getProdutoQntd());
+		estoqueRepo.save(estoque);
+		System.out.println("Atualizado quantidade no estoque!");
 	}
 }

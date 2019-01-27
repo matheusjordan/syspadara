@@ -17,9 +17,6 @@ public class Estoque implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
-
-	@Column(name = "valor", nullable = false)
-	private Double valorEstoque;
 	
 	@Column(name = "produto", nullable = false, unique = true)
 	private Produto produto;
@@ -58,13 +55,5 @@ public class Estoque implements Serializable{
 
 	public void setProdutoQntd(Integer produtoQntd) {
 		this.produtoQntd = produtoQntd;
-	}
-
-	public Double getValorEstoque() {
-		return valorEstoque;
-	}
-
-	public void setValorEstoque(Double valorEstoque) {
-		this.valorEstoque = valorEstoque;
 	}
 }

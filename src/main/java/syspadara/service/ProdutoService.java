@@ -1,6 +1,5 @@
 package syspadara.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,12 +43,7 @@ public class ProdutoService {
 	
 	//Função para encontrar produtos pelo ID
 	public List<Produto> findProdutos(List<Long> ids){
-		List<Produto> produtos = new ArrayList<>();
-		
-		for(Long id : ids) {
-			produtos.add(repository.findById(id).get());
-		}
-		
+		List<Produto> produtos = repository.findAllById(ids);
 		return produtos;
 	}
 	
