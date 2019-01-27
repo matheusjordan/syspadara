@@ -60,10 +60,11 @@ public class ProdutoService {
 		return produtoRepo.findById(id).get();
 	}
 	
-	//Revisar as funções abaixo Status -> < NOT OK >
-	public Produto findByNome(String nome) {
-		return produtoRepo.findByNome(nome);
-	}
+//	Revisar as funções abaixo Status -> < NOT OK >
+//	public Produto findByNome(String nome) {
+//		return produtoRepo.findByNome(nome);
+//	}
+	
 	public List<Produto> findAllNomes(String nome){
 		return produtoRepo.buscarProduto(nome);
 	}

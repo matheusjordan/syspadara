@@ -30,3 +30,7 @@ O sistema da padaria de seu joaquim está sendo feito utilizando o JavaEE, Maven
 1- Criado DTO [CadastroProduto]
 2- Alterado funcionalidade [createProduto] na Classe [ProdutoService]
 3- Adicionado verificação da quantidade vendidas
+
+- Atualização para versao 2.0.0 -:
+1- IMPLEMENTADO DOCUMENTAÇÃO DO PROJETO ATRAVÉS DO SWAGGER
+2- Removido buscar produto por nome
