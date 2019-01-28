@@ -61,13 +61,6 @@ public class ProdutoController {
 		return new ResponseEntity<List<Produto>>(produtos, HttpStatus.OK);
 	}
 
-//	@ApiOperation(value = "Retonar os dados de de um produto pelo nome")
-//	@GetMapping("find/{nome}")
-//	public ResponseEntity<Produto> findByNome(@PathVariable(name = "nome") String nome) {
-//		Produto produto = service.findByNome(nome);
-//		return new ResponseEntity<Produto>(produto, HttpStatus.OK);
-//	}
-
 	@ApiOperation(value = "Retorna os dados de produtos que possuem caracters em comum")
 	@GetMapping("find/{nome}")
 	public ResponseEntity<List<Produto>> findAllByNome(@PathVariable(name = "nome") String nome) {

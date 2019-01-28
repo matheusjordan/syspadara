@@ -34,3 +34,14 @@ O sistema da padaria de seu joaquim está sendo feito utilizando o JavaEE, Maven
 - Atualização para versao 2.0.0 -:
 1- IMPLEMENTADO DOCUMENTAÇÃO DO PROJETO ATRAVÉS DO SWAGGER
 2- Removido buscar produto por nome
+
+(28/01/2019) -Atualização para a versao 2.1 -:
+1- Atualizado Classes [EstoqueRepository, EstoqueService, VendaService]
+2- Ao criar um produto o mesmo é automaticamente adicionado ao estoque
+3- Ao cria um venda é verificado a quantidade dos mesmos no estoque e seu crédito é realizado automaticamente
+4- Adicionado tratamento de erros e verificações na criação de uma venda
+
+
+
+
+

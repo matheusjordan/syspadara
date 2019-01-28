@@ -18,8 +18,8 @@ public class Estoque implements Serializable{
 	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "produto", nullable = false, unique = true)
-	private Produto produto;
+	@Column(name = "produto_id", nullable = false, unique = true)
+	private Long produtoId;
 
 	@Column(name = "produto_qntd", nullable = false)
 	private Integer produtoQntd;
@@ -27,8 +27,8 @@ public class Estoque implements Serializable{
 	//Construtores
 	public Estoque() {};
 	
-	public Estoque(Produto produto, Integer produtoQntd) {
-		this.produto = produto;
+	public Estoque(Long produtoId, Integer produtoQntd) {
+		this.produtoId = produtoId;
 		this.produtoQntd = produtoQntd;
 	}
 	
@@ -41,12 +41,12 @@ public class Estoque implements Serializable{
 		this.id = id;
 	}
 
-	public Produto getProduto() {
-		return produto;
+	public Long getProdutoId() {
+		return this.produtoId;
 	}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setProdutoId(Long produtoId) {
+		this.produtoId = produtoId;
 	}
 
 	public Integer getProdutoQntd() {

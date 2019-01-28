@@ -7,4 +7,7 @@ import syspadara.model.Estoque;
 
 @Repository
 public interface EstoqueRepository extends JpaRepository<Estoque, Long>{
+	Estoque findProdutoQntdByProdutoId(Long id);
+	Estoque findEstoqueByProdutoId(Long id);
+	Estoque findProdutoIdById(Long id);
 }

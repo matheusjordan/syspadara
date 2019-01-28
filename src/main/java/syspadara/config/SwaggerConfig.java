@@ -1,4 +1,4 @@
-package syspadara;
+package syspadara.config;
 
 //import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class SwaggerConfig {
 		ApiInfo apiInfo = new ApiInfo(
 				"Syspadara API REST",
 				"API REST para gerenciar uma padaria", 
-				"VERSAO 1.5", null, null, null, null);
+				"VERSAO 2.0", null, null, null, null);
 		
 		 return apiInfo;
 	}

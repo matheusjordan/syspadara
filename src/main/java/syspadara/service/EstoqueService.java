@@ -16,15 +16,12 @@ public class EstoqueService {
 
 	@Autowired
 	private EstoqueRepository estoqueRepo;
-
-	@Autowired
-	private ProdutoService produtoSer;
 	
 	// Funções CRUD***
 	public void createEstoque(EstoqueCadastro cadastro) {
 		Estoque estoque = new Estoque();
 		
-		estoque.setProduto(produtoSer.findProduto(cadastro.getProdutoId()));
+		estoque.setProdutoId(cadastro.getProdutoId());
 		estoque.setProdutoQntd(cadastro.getQntd());
 		
 		estoqueRepo.save(estoque);
@@ -50,15 +47,25 @@ public class EstoqueService {
 		return estoqueRepo.findAll();
 	}
 	
-	//Função que retorna a quantidade do produto no estoque
+	//Função que retorna o ID do estoque de um produto por seu id
+	public Long findEstoqueId(Long id) {
+		return estoqueRepo.findEstoqueByProdutoId(id).getId();
+	}
+	
+	//Função que retorna o estoque de um produto pelo ID
 	public Integer findProdutoEstoque(Long id) {
-		return estoqueRepo.findById(id).get().getProdutoQntd();
+		return estoqueRepo.findProdutoQntdByProdutoId(id).getProdutoQntd();
 	}
 	
 	//Função para alterar a quantidade de um produto no estoque
 	public void editQntd(EstoqueEditQntd editQntd) {
-		Estoque estoque = estoqueRepo.findById(editQntd.getEstoqueId()).get();
+		Estoque estoque = new Estoque();
+		Long produtoId = this.findProdutoId(editQntd.getEstoqueId());
+		
+		estoque.setId(editQntd.getEstoqueId());
+		estoque.setProdutoId(produtoId);
 		estoque.setProdutoQntd(editQntd.getProdutoQntd());
+		
 		estoqueRepo.save(estoque);
 		System.out.println("Atualizado quantidade no estoque!");
 	}
@@ -66,10 +73,14 @@ public class EstoqueService {
 	//Função para retornar os Ids dos produtos cadastrados no estoque
 	public List<Long> findProdutosId() {
 		List<Long> produtosId = new ArrayList<>();
-		
 		for(int i=0; i<estoqueRepo.findAll().size(); i++) {
-			produtosId.add(estoqueRepo.findAll().get(i).getProduto().getId());
+			produtosId.add(estoqueRepo.findAll().get(i).getProdutoId());
 		}
 		return produtosId;	
+	}
+	
+	//Função para reotnra o id de um produto cadastrado no estoque
+	public Long findProdutoId(Long id) {
+		return estoqueRepo.findProdutoIdById(id).getProdutoId();
 	}
 }
